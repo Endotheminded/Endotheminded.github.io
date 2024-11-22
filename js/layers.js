@@ -15,6 +15,7 @@ addLayer("d", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('d', 13)) mult = mult.times(1.5)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -30,6 +31,16 @@ addLayer("d", {
             description: "Boost your data by 1.5x",
             cost: new Decimal(1),
         },
+        12: {
+            title: "Hug the egg",
+            description: "Quadruples Data generation",
+            cost: new Decimal(5),
+        },
+        13: {
+            title: "Gosh",
+            description: "1.5x DigiEgg gain",
+            cost: new Decimal(20),
+        }
     },
     layerShown(){return true}
 })
