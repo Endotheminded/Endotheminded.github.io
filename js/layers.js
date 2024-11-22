@@ -6,7 +6,7 @@ addLayer("d", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#4BDC13",
+    color: "#FFFFFF",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "digieggs", // Name of prestige currency
     baseResource: "data", // Name of resource prestige is based on
@@ -24,5 +24,12 @@ addLayer("d", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    upgrades: {
+        11: {
+            title: "Nurture the digiegg",
+            description: "Boost your data by 1.5x",
+            cost: new Decimal(1),
+        },
+    },
     layerShown(){return true}
 })
